@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
+#
+# Copyright 2016, DAQRI LLC.
+#
+# This code is covered by the MIT License (see LICENSE.txt)
+
 set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
 bundle install
-
-# Do any other automated setup that you need to do here

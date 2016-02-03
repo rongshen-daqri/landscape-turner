@@ -1,3 +1,8 @@
+#
+# Copyright 2016, DAQRI LLC.
+#
+# This code is covered by the MIT License (see LICENSE.txt)
+
 require_relative 'helpers'
 require_relative 'backup'
 require 'fileutils'
@@ -55,7 +60,7 @@ In addition to optional arguments, give exactly one .tar.gz file to restore.
         with_service_stopped("postgresql") do
           replace(POSTGRES_CONFIG,"/tmp/landscape_backup/#{POSTGRES_CONFIG}")
         end
-      end      
+      end
 
       puts "Restoration of Landscape configuration completed."
 
@@ -68,7 +73,7 @@ In addition to optional arguments, give exactly one .tar.gz file to restore.
     puts "Copying #{filename} to #{File.dirname(filename_replace)}..."
     FileUtils.cp_r(filename, File.dirname(filename_replace), :preserve => true, :remove_destination => true)
   end
- 
+
 
   def self.restore_landscape_databases(restore_location)
     #clear the databases first
@@ -83,5 +88,5 @@ In addition to optional arguments, give exactly one .tar.gz file to restore.
 
   end
 
-    
+
 end
