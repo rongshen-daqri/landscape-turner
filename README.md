@@ -2,7 +2,6 @@
 
 Landscape Turner is a set of two ruby scripts for backing up the Landscape service, 	`landscape-turner-backup` and `landscape-turner-restore` .
 
-
 ## General Usage
 
 ```bash
