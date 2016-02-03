@@ -2,6 +2,7 @@
 
 Landscape Turner is a set of two ruby scripts for backing up the Landscape service, 	`landscape-turner-backup` and `landscape-turner-restore` .
 
+
 ## General Usage
 
 ```bash
@@ -43,3 +44,7 @@ Disable database restore
 
 
 In addition to the optional arguments, you must specify exactly one .tar.gz file to restore.
+
+## Install
+
+If you don't want to build from the gemspec yourself you can install it directly with `$ sudo gem install landscape-turner`
