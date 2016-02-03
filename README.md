@@ -1,6 +1,10 @@
 # Landscape Turner
 
-Landscape Turner is a set of two ruby scripts for backing up the Landscape service, 	`landscape-turner-backup` and `landscape-turner-restore` .
+Landscape Turner is a set of two ruby scripts for backing up the Landscape service, `landscape-turner-backup` and `landscape-turner-restore`.
+
+## License
+
+Landscape Turner is MIT Licensed.
 
 ## General Usage
 
@@ -29,7 +33,6 @@ Path to prefix default landscape dirs (/var, /etc), default is nothing.
 
 ### -p, --no-op
 No-op (dry run)
-
 
 To override specific paths, use `-o name1=path1 -o name2=path2 -o name3=path3`. To disable specific paths for backup, use `-d name1 -d name2`. Overrides have higher priority than `--landscape-prefix`.
 

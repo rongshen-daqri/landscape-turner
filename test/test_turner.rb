@@ -1,3 +1,8 @@
+#
+# Copyright 2016, DAQRI LLC.
+#
+# This code is covered by the MIT License (see LICENSE.txt)
+
 require 'minitest'
 require 'minitest/autorun'
 
@@ -6,7 +11,7 @@ require 'landscape-turner/backup'
 
 require 'fileutils'
 
-class TestTurner < Minitest::Test 
+class TestTurner < Minitest::Test
   # Make sure the permissions before and after the backup are the same
   def test_permissions_intact()
     check_files = [
@@ -44,5 +49,5 @@ class TestTurner < Minitest::Test
       assert_equal(old_perms[filename].gid, new_perms[filename].gid, "GIDs for #{filename} do not match!") if running_as_root
     end
 
-  end 
+  end
 end

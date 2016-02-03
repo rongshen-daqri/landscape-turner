@@ -1,3 +1,8 @@
+#
+# Copyright 2016, DAQRI LLC.
+#
+# This code is covered by the MIT License (see LICENSE.txt)
+
 require_relative 'helpers'
 require 'fileutils'
 require 'pathname'
@@ -91,16 +96,16 @@ Names with default values:
     end
     # remove the folder where we stored everything
     operate ? FileUtils.remove_dir(destination) : nil
-    puts "Finished backing up to #{destination}"     
+    puts "Finished backing up to #{destination}"
   end
 
   def self.dump_landscape_databases(backup_destination)
     FileUtils.mkdir("#{backup_destination}/postgresql_backup") rescue nil
-    get_landscape_databases().each { |database_name| 
+    get_landscape_databases().each { |database_name|
     # pg_dump dbname > outfile
     safe_system("cd /tmp && sudo -u postgres pg_dump #{database_name} > #{database_name}.bak")
     FileUtils.mv("/tmp/#{database_name}.bak","#{backup_destination}/postgresql_backup/")
-    }  
+    }
   end
 
   def self.check_consistent_tar(destination)
@@ -110,7 +115,7 @@ Names with default values:
     hash_folder1 = Open3.capture3("find #{destination} -type f 2>/dev/null -exec md5sum {} \;")
     hash_folder2 = Open3.capture3("find /tmp/tar_check -type f 2>/dev/null -exec md5sum {} \;")
     FileUtils.rm_rf("/tmp/tar_check")
-    return hash_folder1 == hash_folder2     
+    return hash_folder1 == hash_folder2
   end
 
 end

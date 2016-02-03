@@ -1,3 +1,8 @@
+#
+# Copyright 2016, DAQRI LLC.
+#
+# This code is covered by the MIT License (see LICENSE.txt)
+
 require "rake/testtask"
 
 Rake::TestTask.new do |t|
