@@ -46,3 +46,13 @@ Disable database restore
 
 
 In addition to the optional arguments, you must specify exactly one .tar.gz file to restore.
+
+## Install
+
+You can build Landscape Turner from the gemspec file like so:
+
+`$ gem build landscape-turner.gemspec`
+
+`$ sudo gem install landscape-turner-1.2.0.gem`
+
+If you don't want to build from the gemspec yourself, you can install from rubygems with `$ sudo gem install landscape-turner`
