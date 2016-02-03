@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'landscape-turner/restore'
+
+if ENV['USER'] != "root"
+  puts "You must have root permissions to run this tool."
+  exit 
+end
+  
+Restore.restore_with_cli_args

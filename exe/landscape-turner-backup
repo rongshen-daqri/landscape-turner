@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'landscape-turner/backup'
+
+if ENV['USER'] != "root"
+   puts "You must have root permissions to run this tool."
+   exit -1
+end
+
+Backup.backup_with_cli_args
