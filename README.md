@@ -46,4 +46,10 @@ In addition to the optional arguments, you must specify exactly one .tar.gz file
 
 ## Install
 
-If you don't want to build from the gemspec yourself you can install it directly with `$ sudo gem install landscape-turner`
+You can install build Landscape Turner from the gemspec file like so:
+
+`$ gem build landscape-turner.gemspec`
+
+`$ sudo gem install landscape-turner-1.2.0.gem`
+
+If you don't want to build from the gemspec yourself, you can install it directly with `$ sudo gem install landscape-turner`
