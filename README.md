@@ -46,7 +46,7 @@ In addition to the optional arguments, you must specify exactly one .tar.gz file
 
 ## Install
 
-You can install build Landscape Turner from the gemspec file like so:
+You can build Landscape Turner from the gemspec file like so:
 
 `$ gem build landscape-turner.gemspec`
 
