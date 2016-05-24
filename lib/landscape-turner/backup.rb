@@ -24,7 +24,7 @@ class Backup
       opt :override,              "Override paths with -o name1=path1",                      :type => :strings
       opt :disable,               "Disable paths with -d name",                              :type => :strings
       opt :no_db,                 "Disable database backup"
-      opt :landscape_prefix,      "Path to prefix default landscape dirs (/var, /etc) with", :default => ""
+      opt :landscape_prefix,      "Path to prefix default landscape dirs (/var, /etc) with", :default => "/"
       opt :no_op,                 "No-op (dry run)"
       opt :sudo,                  "Program to use as sudo",                                  :default => "sudo"
 
