@@ -7,7 +7,7 @@ require 'fileutils'
 
 class Restore
   extend LandscapeTurner::Helpers
-  POSTGRES_CONFIG = "/etc/postgresql/9.3/main"
+  POSTGRES_CONFIG = "/etc/postgresql/9.5/main"
   EXCLUDE_FILES = [POSTGRES_CONFIG]
   def self.restore_with_cli_args(args = ARGV)
     opts = Trollop.options(args) do
