@@ -17,7 +17,7 @@ class Backup
       :x509_certificate  => "/etc/ssl/certs/landscape_server.pem",
       :ca_certificate    => "/etc/ssl/certs/landscape_server_ca.crt",
       :ssl_private_key   => "/etc/ssl/private/landscape_server.key",
-      :postgresql_config => "/etc/postgresql/9.3/main",
+      :postgresql_config => "/etc/postgresql/9.5/main",
       :apache_config     => "/etc/apache2/sites-available/landscape-server.conf",
       :hash_id_database  => "/var/lib/landscape/hash-id-databases",
       :landscape_dir     => "/etc/landscape",
