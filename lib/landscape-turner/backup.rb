@@ -56,8 +56,9 @@ Names with default values:
     end
 
     (new_args[:disable] || []).each do |d|
-      raise "Unrecognized name argument: #{d.inspect}!" unless paths[key]
-      paths.delete d.to_sym
+      d = d.to_sym
+      raise "Unrecognized name argument: #{d.inspect}!" unless paths[d]
+      paths.delete d
     end
 
     backup_landscape(new_args, paths, prefix)
