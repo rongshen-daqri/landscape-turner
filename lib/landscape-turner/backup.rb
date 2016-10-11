@@ -43,13 +43,13 @@ Names with default values:
     prefix = new_args[:landscape_prefix]
     paths.each { |k, v| paths[k] = "#{prefix}#{v}" }
 
-    (new_args[:override] || []).each do |o|
-      key, val = o.split("=")
-      key = key.to_sym
-      raise "Unrecognized name argument: #{key.inspect}!" unless paths[key]
-      paths[key] = val
-    end
-
+   path_args = new_args.clone
+   [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo].each { |k| path_args.delete(k) }
+   (path_args || []).each do |o|
+     raise "Unrecognized path  argument: #{key.inspect}!" unless paths[o]
+     paths[o] = path_args[o]
+   end 
+ 
     (new_args[:disable] || []).each do |d|
       raise "Unrecognized name argument: #{d.inspect}!" unless paths[key]
       paths.delete d.to_sym
