@@ -25,7 +25,7 @@ class Backup
       opt :disable,               "Disable paths with -d name",                              :type => :strings
       opt :no_db,                 "Disable database backup"
       opt :landscape_prefix,      "Path to prefix default landscape dirs (/var, /etc) with", :default => "/"
-      opt :no_op,                 "No-op (dry run)",
+      opt :no_op,                 "No-op (dry run)"
       opt :sudo,                  "Program to use as sudo",                                  :default => "sudo"
       opt :x509_certificate,      "Path to landscape x509 certificate",                      :type => String
       opt :ca_certificate,        "Path to landscape CA certificatess" ,                     :type => String
