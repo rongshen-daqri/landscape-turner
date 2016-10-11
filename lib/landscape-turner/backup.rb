@@ -25,16 +25,16 @@ class Backup
       opt :disable,               "Disable paths with -d name",                              :type => :strings
       opt :no_db,                 "Disable database backup"
       opt :landscape_prefix,      "Path to prefix default landscape dirs (/var, /etc) with", :default => "/"
-      opt :no_op,                 "No-op (dry run)"
+      opt :no_op,                 "No-op (dry run)",
       opt :sudo,                  "Program to use as sudo",                                  :default => "sudo"
       opt :x509_certificate,      "Path to landscape x509 certificate",                      :type => String
-      opt :ca_certificate,        "Path to landscape CA certificatess"                       :type => String
-      opt :ssl_private_key,       "Path to Landscape's private key"                          :type => String
-      opt :postgresql_config      "Path to landscape's Postgresql config"                    :type => String
-      opt :apache_config          "Path to Apache config"                                    :type => String
-      opt :hash_id_database       "Path to Hash ID databases"                                :type => String
-      opt :landscape_dir          "Path to landscape directory"                              :type => String
-      opt :landscape_default      "Path to default landscape server directory"               :type => String
+      opt :ca_certificate,        "Path to landscape CA certificatess" ,                     :type => String
+      opt :ssl_private_key,       "Path to Landscape's private key",                         :type => String
+      opt :postgresql_config,     "Path to landscape's Postgresql config",                   :type => String
+      opt :apache_config,         "Path to Apache config",                                   :type => String
+      opt :hash_id_database,      "Path to Hash ID databases",                               :type => String
+      opt :landscape_dir,         "Path to landscape directory",                             :type => String
+      opt :landscape_default,     "Path to default landscape server directory",              :type => String
       banner <<-USAGE
 To override specific paths, use -o name1=path1 -o name2=path2 -o name3=path3
 To disable specific paths for backup, use -d name1 -d name2
