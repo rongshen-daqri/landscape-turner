@@ -53,7 +53,7 @@ Names with default values:
    path_args = new_args.clone
    [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo].each { |k| path_args.delete(k) }
    (path_args || []).each do |o|
-     raise "Unrecognized path  argument: #{key.inspect}!" unless paths[o]
+     raise "Unrecognized path  argument: #{o.inspect}!" unless paths[o]
      paths[o] = path_args[o]
    end 
  
