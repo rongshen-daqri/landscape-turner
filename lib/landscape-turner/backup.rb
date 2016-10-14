@@ -36,12 +36,10 @@ class Backup
       opt :landscape_dir,         "Path to landscape directory",                             :type => String
       opt :landscape_default,     "Path to default landscape server directory",              :type => String
       banner <<-USAGE
-To override specific paths, use -o name1=path1 -o name2=path2 -o name3=path3
+To override specific paths, use the optional arguments for the different paths listed above.
 To disable specific paths for backup, use -d name1 -d name2
 Overrides have higher priority than --landscape-prefix.
 
-Names with default values:
-#{paths.keys.map { |k| "  #{k}: #{paths[k]}"} }
       USAGE
     end
 
