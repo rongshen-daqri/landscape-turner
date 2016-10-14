@@ -39,7 +39,6 @@ class Backup
 To override specific paths, use the optional arguments for the different paths listed above.
 To disable specific paths for backup, use -d name1 -d name2
 Overrides have higher priority than --landscape-prefix.
-
       USAGE
     end
 
@@ -49,7 +48,7 @@ Overrides have higher priority than --landscape-prefix.
     paths.each { |k, v| paths[k] = "#{prefix}#{v}" }
 
    path_args = new_args.clone
-   [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo].each { |k| path_args.delete(k) }
+   [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo, :help!].each { |k| path_args.delete(k) }
    (path_args.keys).each do |o|
      raise "Unrecognized path  argument: #{o.inspect}!" unless paths[o]
      paths[o] = path_args[o]
