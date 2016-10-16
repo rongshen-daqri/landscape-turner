@@ -50,8 +50,12 @@ Overrides have higher priority than --landscape-prefix.
    path_args = new_args.clone
    [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo, :help].each { |k| path_args.delete(k) }
    (path_args.keys).each do |o|
-     raise "Unrecognized path  argument: #{o.inspect}!" unless paths[o]
-     paths[o] = path_args[o]
+     if !o.to_s.include?("_given")
+       if path_args["#{o}_given".to_sym] == true
+         raise "Unrecognized path  argument: #{o.inspect}!" unless paths[o]
+         paths[o] = path_args[o]
+       end
+     end
    end 
  
     (new_args[:disable] || []).each do |d|
