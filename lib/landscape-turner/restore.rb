@@ -32,10 +32,16 @@ In addition to optional arguments, give exactly one .tar.gz file to restore.
 
   def self.with_service_stopped(service)
     begin
-      safe_system("#{@@sudo} service #{service} stop")
+      safe_system("#{@@sudo} service #{service} status")
+      begin
+        safe_system("#{@@sudo} service #{service} stop")
+        yield
+      ensure
+        safe_system("#{@@sudo} service #{service} start")
+      end
+    rescue
+      puts "Service #{service} does not exist"
       yield
-    ensure
-      safe_system("#{@@sudo} service #{service} start")
     end
   end
 
