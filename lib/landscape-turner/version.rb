@@ -4,5 +4,5 @@
 # This code is covered by the MIT License (see LICENSE.txt)
 
 module LandscapeTurner
-  VERSION = "1.2.0"
+  VERSION = "1.7.8"
 end

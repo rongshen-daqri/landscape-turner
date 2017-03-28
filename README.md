@@ -53,6 +53,6 @@ You can build Landscape Turner from the gemspec file like so:
 
 `$ gem build landscape-turner.gemspec`
 
-`$ sudo gem install landscape-turner-1.5.0.gem`
+`$ sudo gem install landscape-turner-1.7.8.gem`
 
 If you don't want to build from the gemspec yourself, you can install from rubygems with `$ sudo gem install landscape-turner`
