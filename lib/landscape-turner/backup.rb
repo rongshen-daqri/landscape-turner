@@ -32,14 +32,18 @@ class Backup
       opt :landscape_prefix,      "Path to prefix default landscape dirs (/var, /etc) with", :default => "/"
       opt :no_op,                 "No-op (dry run)"
       opt :sudo,                  "Program to use as sudo",                                  :default => "sudo"
-
+      opt :x509_certificate,      "Path to landscape x509 certificate",                      :type => String
+      opt :ca_certificate,        "Path to landscape CA certificatess" ,                     :type => String
+      opt :ssl_private_key,       "Path to Landscape's private key",                         :type => String
+      opt :postgresql_config,     "Path to landscape's Postgresql config",                   :type => String
+      opt :apache_config,         "Path to Apache config",                                   :type => String
+      opt :hash_id_database,      "Path to Hash ID databases",                               :type => String
+      opt :landscape_dir,         "Path to landscape directory",                             :type => String
+      opt :landscape_default,     "Path to default landscape server directory",              :type => String
       banner <<-USAGE
-To override specific paths, use -o name1=path1 -o name2=path2 -o name3=path3
+To override specific paths, use the optional arguments for the different paths listed above.
 To disable specific paths for backup, use -d name1 -d name2
 Overrides have higher priority than --landscape-prefix.
-
-Names with default values:
-#{paths.keys.map { |k| "  #{k}: #{paths[k]}"} }
       USAGE
     end
 
@@ -48,13 +52,17 @@ Names with default values:
     prefix = new_args[:landscape_prefix]
     paths.each { |k, v| paths[k] = "#{prefix}#{v}" }
 
-    (new_args[:override] || []).each do |o|
-      key, val = o.split("=")
-      key = key.to_sym
-      raise "Unrecognized name argument: #{key.inspect}!" unless paths[key]
-      paths[key] = val
-    end
-
+   path_args = new_args.clone
+   [:snapshot_path, :override, :disable, :no_db, :landscape_prefix, :no_op, :sudo, :help].each { |k| path_args.delete(k) }
+   (path_args.keys).each do |o|
+     if !o.to_s.include?("_given")
+       if path_args["#{o}_given".to_sym] == true
+         raise "Unrecognized path  argument: #{o.inspect}!" unless paths[o]
+         paths[o] = path_args[o]
+       end
+     end
+   end 
+ 
     (new_args[:disable] || []).each do |d|
       d = d.to_sym
       raise "Unrecognized name argument: #{d.inspect}!" unless paths[d]
